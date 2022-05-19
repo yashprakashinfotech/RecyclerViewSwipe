@@ -29,7 +29,21 @@
         android:id="@+id/textViewDelete"
         android:gravity="center"
         android:background="#f00"
+        android:drawableStart="@drawable/ic_delete"
         app:layout_constraintStart_toEndOf="@id/frameLayout"
+        />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:text="Edit"
+        android:textSize="12pt"
+        android:textColor="@color/white"
+        android:id="@+id/textViewEdit"
+        android:gravity="center"
+        android:background="#0f0"
+        android:drawableStart="@drawable/ic_edit"
+        app:layout_constraintStart_toEndOf="@id/textViewDelete"
         />
 
     <View

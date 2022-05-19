@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">RecyclerViewItemSideSwipe</string>
+
+    <string name="username">Username</string>
+    <string name="submit">Submit</string>
+    <string name="name">Name</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="designation">Designation</string>
+    <string name="user_id">User Id</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="user_form">User Form</string>
+    <string name="userid">UserId</string>
+    <string name="alert_message">Are you sure you want to delete user ?</string>
 </resources>

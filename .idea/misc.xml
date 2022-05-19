@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/yash.patel/AndroidStudioProjects/RecyclerViewItemSideSwipe/app/src/main/res/drawable-v24/ic_arrow_back.xml" value="0.1985" />
+        <entry key="..\:/Users/yash.patel/AndroidStudioProjects/RecyclerViewItemSideSwipe/app/src/main/res/drawable/profile_edittext.xml" value="0.1" />
+        <entry key="..\:/Users/yash.patel/AndroidStudioProjects/RecyclerViewItemSideSwipe/app/src/main/res/layout/activity_form.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/yash.patel/AndroidStudioProjects/RecyclerViewItemSideSwipe/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/yash.patel/AndroidStudioProjects/RecyclerViewItemSideSwipe/app/src/main/res/layout/user_view.xml" value="0.29259259259259257" />
         <entry key="..\:/Users/yash.patel/AndroidStudioProjects/RecyclerViewItemSideSwipe/app/src/main/res/layout/view_holder_item.xml" value="0.33" />
       </map>
     </option>

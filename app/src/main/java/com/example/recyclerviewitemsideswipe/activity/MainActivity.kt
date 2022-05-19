@@ -1,15 +1,21 @@
-package com.example.recyclerviewitemsideswipe
+package com.example.recyclerviewitemsideswipe.activity
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Canvas
-import android.icu.number.IntegerWidth
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.recyclerviewitemsideswipe.R
 import com.example.recyclerviewitemsideswipe.adapter.ListAdapter
+import com.example.recyclerviewitemsideswipe.database.DataBaseHandler
+import com.example.recyclerviewitemsideswipe.helper.KeyClass
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,33 +27,47 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.recycleView)
     }
 
-    private val listAdapter = ListAdapter()
+    private lateinit var fabAdd : FloatingActionButton
+    private lateinit var dataBaseHandler : DataBaseHandler
+
+    private val listAdapter = ListAdapter(this)
     private val layoutManager = LinearLayoutManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Initialization
+        fabAdd = findViewById(R.id.fabAdd)
+        dataBaseHandler = DataBaseHandler(this)
+
+        fabAdd.setOnClickListener {
+            val i = Intent(this,FormActivity::class.java)
+            i.putExtra(KeyClass.KEY_CAME_FROM,true)
+            startActivity(i)
+        }
+
+
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
 
-            val list = mutableListOf<Int>()
-            for (i in 0 until 50){
-                list.add(i)
-            }
+//            val list = mutableListOf<Int>()
+//            for (i in 0 until 50){
+//                list.add(i)
+//            }
 
-            listAdapter.reload(list)
+//            listAdapter.reload(list)
         }
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = listAdapter
 
-        val list = mutableListOf<Int>()
-        for (i in 0 until 50){
-            list.add(i)
-        }
+//        val list = mutableListOf<Int>()
+//        for (i in 0 until 50){
+//            list.add(i)
+//        }
 
-        listAdapter.reload(list)
+//        listAdapter.reload(list)
         setItemTouchHelper()
     }
 
@@ -79,9 +99,7 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
 
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-
-            }
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
 
             override fun getSwipeThreshold(viewHolder: RecyclerView.ViewHolder): Float {
                 return Integer.MAX_VALUE.toFloat()
@@ -158,5 +176,44 @@ class MainActivity : AppCompatActivity() {
     private fun dipTopx(dipValue: Float,context: Context): Int{
         return (dipValue * context.resources.displayMetrics.density).toInt()
     }
+
+
+    private fun deleteUser(id: Int){
+
+        val profileAlertDialog: AlertDialog.Builder = AlertDialog.Builder(this)
+        profileAlertDialog.setTitle(R.string.delete)
+        profileAlertDialog.setCancelable(true)
+        profileAlertDialog.setMessage(R.string.alert_message)
+        profileAlertDialog.setPositiveButton(R.string.yes) { dialog, _ ->
+            dataBaseHandler.deleteUserById(id)
+            getUserData()
+            dialog.dismiss()
+
+        }.setNegativeButton(R.string.no) { dialog, _ ->
+            dialog.dismiss()
+        }
+        profileAlertDialog.show()
+
+    }
+    private fun getUserData(){
+        val userListData = dataBaseHandler.readAllData()
+
+        // Display Data in recyclerView
+        listAdapter.addItem(userListData)
+
+        // If Data Not Available
+//        emptyView()
+    }
+
+//    private fun emptyView(){
+//        // If Data Not Available
+//        val empty = (userList.adapter as UserAdapter).itemCount
+//        if (empty == 0){
+//            emptyView.visibility = View.VISIBLE
+//        }
+//        else{
+//            emptyView.visibility = View.GONE
+//        }
+//    }
 
 }

@@ -1,50 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#333">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
+<!--    <FrameLayout-->
+<!--        android:id="@+id/frameLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="12pt"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:text="index"-->
+<!--            />-->
+<!--    </FrameLayout>-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:backgroundTint="@color/light_blue"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/llUserView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/name"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/userDesignation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/designation"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/userId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/user_id"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/bloodGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/blood_group"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="0.2">-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/icDelete"-->
+<!--                    -->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:src="@drawable/ic_delete" />-->
+
+<!--            </LinearLayout>-->
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:id="@+id/cardDelete"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardView"
+        app:layout_constraintTop_toTopOf="parent" >
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12pt"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="delete"
+            android:textSize="18sp"
             android:textColor="@color/white"
-            android:text="dhbjfjbdf"
-            />
-    </FrameLayout>
+            android:id="@+id/textDelete"
+            android:gravity="center"
+            android:background="#f00"
+            android:elevation="10dp"
+            android:paddingStart="10dp"
+            android:drawableStart="@drawable/ic_delete"
+            tools:ignore="RtlSymmetry,UseCompatTextViewDrawableXml" />
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:text="delete"
-        android:textSize="12pt"
-        android:textColor="@color/white"
-        android:id="@+id/textViewDelete"
-        android:gravity="center"
-        android:background="#f00"
-        android:drawableStart="@drawable/ic_delete"
-        app:layout_constraintStart_toEndOf="@id/frameLayout"
-        />
+    </androidx.cardview.widget.CardView>
 
-    <TextView
+    <androidx.cardview.widget.CardView
         android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:text="Edit"
-        android:textSize="12pt"
-        android:textColor="@color/white"
-        android:id="@+id/textViewEdit"
-        android:gravity="center"
-        android:background="#0f0"
-        android:drawableStart="@drawable/ic_edit"
-        app:layout_constraintStart_toEndOf="@id/textViewDelete"
-        />
+        android:layout_height="135dp"
+        android:id="@+id/cardEdit"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardDelete"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="Edit"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:id="@+id/textViewEdit"
+            android:gravity="center"
+            android:background="#0f0"
+            android:drawableStart="@drawable/ic_edit"
+            android:paddingStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/cardDelete"
+            tools:ignore="RtlSymmetry" />
+
+<!--        <TextView-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="Edit"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:id="@+id/textEdit"-->
+<!--            android:gravity="center"-->
+<!--            android:background="#0f0"-->
+<!--            android:elevation="10dp"-->
+<!--            android:drawableStart="@drawable/ic_edit"-->
+<!--            />-->
+
+    </androidx.cardview.widget.CardView>
+
+<!--    <TextView-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="delete"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:id="@+id/textViewDelete"-->
+<!--        android:gravity="center"-->
+<!--        android:background="#f00"-->
+<!--        android:elevation="10dp"-->
+<!--        android:drawableStart="@drawable/ic_delete"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Edit"-->
+<!--        android:textSize="12pt"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:id="@+id/textViewEdit"-->
+<!--        android:gravity="center"-->
+<!--        android:background="#0f0"-->
+<!--        android:drawableStart="@drawable/ic_edit"-->
+<!--        app:layout_constraintStart_toEndOf="@id/cardDelete"-->
+<!--        />-->
 
     <View
         android:layout_width="match_parent"

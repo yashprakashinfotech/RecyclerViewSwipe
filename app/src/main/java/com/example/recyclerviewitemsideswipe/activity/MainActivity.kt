@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.recyclerviewitemsideswipe.R
 import com.example.recyclerviewitemsideswipe.adapter.ListAdapter
 import com.example.recyclerviewitemsideswipe.database.DataBaseHandler
+import com.example.recyclerviewitemsideswipe.database.UserModel
 import com.example.recyclerviewitemsideswipe.helper.KeyClass
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         // Initialization
         fabAdd = findViewById(R.id.fabAdd)
         dataBaseHandler = DataBaseHandler(this)
+        getUserData()
 
         fabAdd.setOnClickListener {
             val i = Intent(this,FormActivity::class.java)
@@ -47,6 +50,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         }
 
+        listAdapter.setOnClickDeleteItem {
+            deleteUser(it.id)
+        }
 
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
@@ -76,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         ItemTouchHelper(object : ItemTouchHelper.Callback(){
 
             // the limit of swipe, same as the delete button in item 100dp
-            private val limitScrollX = dipTopx(200f,this@MainActivity)
+            private val limitScrollX = dipTopx(215f,this@MainActivity)
             private var currentScrollX = 0
             private var currentScrollXWhenInActive = 0
             private var initXWhenInActive = 0f
@@ -195,6 +201,45 @@ class MainActivity : AppCompatActivity() {
         profileAlertDialog.show()
 
     }
+
+    // update data
+//    private fun updateUser(){
+//        val username = etUsername.text.toString()
+//        val designation = etDesignation.text.toString()
+//        val userId = etUserId.text.toString()
+//        val bloodGroup = etBloodGroup.text.toString()
+//
+//        if (
+//            username == userNameRV &&
+//            designation == designationRV &&
+//            userId == userIdRV &&
+//            bloodGroup == bloodGroupRV
+//        ){
+//            Toast.makeText(this,"Record not changed", Toast.LENGTH_SHORT).show()
+//        }
+//        else{
+//            val user = UserModel(id = idRV, username = username, designation = designation, userId = userId, bloodGroup = bloodGroup)
+//            val status = dataBaseHandler.updateUser(user)
+//
+//            if (status > -1){
+//                clearEditText()
+//                val i = Intent(this,MainActivity::class.java)
+//                startActivity(i)
+//            }else{
+//                Toast.makeText(this,"Update failed", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//
+//    }
+//
+//    // clear edit text
+//    private fun clearEditText() {
+//        etUsername.setText("")
+//        etDesignation.setText("")
+//        etUserId.setText("")
+//        etBloodGroup.setText("")
+//    }
+
     private fun getUserData(){
         val userListData = dataBaseHandler.readAllData()
 

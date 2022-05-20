@@ -13,7 +13,7 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val view = WeakReference(itemView)
     private lateinit var textView: TextView
-    private lateinit var textViewDelete : TextView
+    private lateinit var textViewDelete : CardView
     var index = 0
 
     var onDeleteClick : ((RecyclerView.ViewHolder) -> Unit)? = null
@@ -24,7 +24,7 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var bloodGroup : TextView = itemView.findViewById(R.id.bloodGroup)
     var cardDelete : CardView = itemView.findViewById(R.id.cardDelete)
 //    var icDelete : ImageView = itemView.findViewById(R.id.icDelete)
-    var textEdit : LinearLayout = itemView.findViewById(R.id.textViewEdit)
+    var textEdit : CardView = itemView.findViewById(R.id.cardEdit)
 
     fun bindView(user : UserModel){
         userName.text = user.username

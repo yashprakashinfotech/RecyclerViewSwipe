@@ -4,29 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#333">
-
-<!--    <FrameLayout-->
-<!--        android:id="@+id/frameLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="12pt"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:text="index"-->
-<!--            />-->
-<!--    </FrameLayout>-->
+    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="10dp"
         android:backgroundTint="@color/light_blue"
         app:cardCornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,21 +75,6 @@
 
             </LinearLayout>
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_weight="0.2">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/icDelete"-->
-<!--                    -->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:src="@drawable/ic_delete" />-->
-
-<!--            </LinearLayout>-->
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -112,7 +82,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
         android:layout_height="135dp"
+        app:cardCornerRadius="15dp"
         android:id="@+id/cardDelete"
+        android:layout_marginStart="15dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/cardView"
@@ -138,6 +110,8 @@
         android:layout_width="100dp"
         android:layout_height="135dp"
         android:id="@+id/cardEdit"
+        app:cardCornerRadius="15dp"
+        android:layout_marginStart="5dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/cardDelete"
@@ -157,46 +131,8 @@
             app:layout_constraintStart_toEndOf="@id/cardDelete"
             tools:ignore="RtlSymmetry" />
 
-<!--        <TextView-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:text="Edit"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:id="@+id/textEdit"-->
-<!--            android:gravity="center"-->
-<!--            android:background="#0f0"-->
-<!--            android:elevation="10dp"-->
-<!--            android:drawableStart="@drawable/ic_edit"-->
-<!--            />-->
-
     </androidx.cardview.widget.CardView>
 
-<!--    <TextView-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="delete"-->
-<!--        android:textSize="18sp"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:id="@+id/textViewDelete"-->
-<!--        android:gravity="center"-->
-<!--        android:background="#f00"-->
-<!--        android:elevation="10dp"-->
-<!--        android:drawableStart="@drawable/ic_delete"-->
-<!--        />-->
-
-<!--    <TextView-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="Edit"-->
-<!--        android:textSize="12pt"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:id="@+id/textViewEdit"-->
-<!--        android:gravity="center"-->
-<!--        android:background="#0f0"-->
-<!--        android:drawableStart="@drawable/ic_edit"-->
-<!--        app:layout_constraintStart_toEndOf="@id/cardDelete"-->
-<!--        />-->
 
     <View
         android:layout_width="match_parent"
